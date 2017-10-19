@@ -8,25 +8,37 @@ Created on Tue Oct 17 16:09:36 2017
 def lista_adj(vertices):
     lista={}
     for i in vertices:
-        opt=1
-        adj=[]
-        while opt==1:
-            v=int(input("adjacentes a {}\n".format(i)))
-            adj.append(v)
-            opt=int(input("Adicionar vizinhos\n1 para sim e 0 para não\n?"))
-        lista[i]=adj
+        v=[int(x) for x in input("adjacentes a {}\n".format(i)).split()]
+        lista[i]=v
     return lista
         
 def mostrar_lista(lista):
     for i in lista:
         print(i)
         
-def aresta_explorada(l,marc,v,w):
-    if v in l.keys():
-        if w in l[v]:
-            
+def aresta_explorada(l,marc):
+    exp=[]
+    for i in l.keys():
+        if i not in marc:
+            print("marca {}".format(i))
+            marc.append(i)
+        partida=i
+        for w in l[partida]:
+            print("laco do {}".format(i))
+            if w not in marc:
+                print("marca {}".format(w))
+                marc.append(w)
+            if ((partida,w) not in exp) and ((w,partida) not in exp): 
+                print("explora a aresta ({},{})".format(partida,w))
+                exp.append((partida,w))
+                partida=w
+    return exp
+                    
+                
             
 vertices=[int(x) for x in input("Vértices do grafo").split()]
 lista=lista_adj(vertices)
 marcados=[]#lista dos vértices marcados
-
+exp=aresta_explorada(lista,marcados)
+print(lista)
+print([i for i in exp])
