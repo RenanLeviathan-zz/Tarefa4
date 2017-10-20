@@ -24,11 +24,10 @@ def aresta_explorada(l,marc):
             marc.append(i)
         partida=i
         for w in l[partida]:
-            print("laco do {}".format(i))
             if w not in marc:
                 print("marca {}".format(w))
                 marc.append(w)
-            if ((partida,w) not in exp) and ((w,partida) not in exp): 
+            if (w in l[partida]) and (((partida,w) not in exp) and ((w,partida) not in exp)): 
                 print("explora a aresta ({},{})".format(partida,w))
                 exp.append((partida,w))
                 partida=w
