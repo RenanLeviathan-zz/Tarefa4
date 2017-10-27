@@ -3,7 +3,6 @@
 Created on Tue Oct 17 16:09:36 2017
 @author: Israël e Renan
 """
-#modulo de lista de adjacências
 class Grafo:
 	def __init__(self,vertices,inicial):
 		self.marc=[]
@@ -15,7 +14,7 @@ class Grafo:
 			
 	def mostrar(self):
 		print(self.lista)
-		
+	#explora as arestas do grafo	
 	def explorar(self):
 		exp=[]
 		comecou=False
