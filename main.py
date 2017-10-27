@@ -1,43 +1,39 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Oct 17 16:09:36 2017
-
 @author: Israël e Renan
 """
 #modulo de lista de adjacências
-def lista_adj(vertices):
-    lista={}
-    for i in vertices:
-        v=[int(x) for x in input("adjacentes a {}\n".format(i)).split()]
-        lista[i]=v
-    return lista
-        
-def mostrar_lista(lista):
-    for i in lista:
-        print(i)
-        
-def aresta_explorada(l,marc):
-    exp=[]
-    for i in l.keys():
-        if i not in marc:
-            print("marca {}".format(i))
-            marc.append(i)
-        partida=i
-        for w in l[partida]:
-            if w not in marc:
-                print("marca {}".format(w))
-                marc.append(w)
-            if (w in l[partida]) and (((partida,w) not in exp) and ((w,partida) not in exp)): 
-                print("explora a aresta ({},{})".format(partida,w))
-                exp.append((partida,w))
-                partida=w
-    return exp
-                    
-                
-            
-vertices=[int(x) for x in input("Vértices do grafo").split()]
-lista=lista_adj(vertices)
-marcados=[]#lista dos vértices marcados
-exp=aresta_explorada(lista,marcados)
-print(lista)
+class Grafo:
+	def __init__(self,vertices,inicial):
+		self.marc=[]
+		self.lista={}
+		self.marc.append(inicial)
+		for v in vertices:
+			w=[x for x in input("Adjacentes a {}:\n".format(v)).split()]
+			self.lista[v]=w
+			
+	def mostrar(self):
+		print(self.lista)
+		
+	def explorar(self):
+		exp=[]
+		comecou=False
+		inicial=self.marc[0]
+		for v in self.lista.keys():
+			if v != inicial and not comecou: continue
+			else: comecou=True
+			if v not in self.marc: self.marc.append(v)
+			for w in self.lista[v]:
+				if w not in self.marc: self.marc.append(w)
+				if (w in self.lista[v]) and (((v,w) not in exp) and ((w,v) not in exp)):
+					exp.append((v,w))
+					v=w
+		return exp
+   
+vertices=[x for x in input("Vértices do grafo:\n").split()]
+ini=input("Vértice inicial da busca:\n")
+g=Grafo(vertices,ini)
+exp=g.explorar()
+g.mostrar()
 print([i for i in exp])
