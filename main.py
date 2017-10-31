@@ -26,6 +26,7 @@ class Grafo:
         if w not in self.marc: self.marc.append(w)
         else: print("Aresta de retorno: ",(v,w))
         if (w in self.lista[v]) and (((v,w) not in exp) and ((w,v) not in exp)):
+          print("Aresta de busca: ",(v,w))
           exp.append((v,w))
           v=w
     return exp
