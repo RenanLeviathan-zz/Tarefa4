@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Oct 17 16:09:36 2017
+Busca em profundidade
 @author: Israël e Renan
 """
 class Grafo:
