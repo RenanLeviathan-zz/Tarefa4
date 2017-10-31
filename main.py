@@ -39,6 +39,6 @@ grafo={
   }
 ini=input("Vértice inicial da busca:\n")
 g=Grafo(grafo,ini)
-print("Arestas de busca:\n")
 exp=g.explorar()
+print("Arestas de busca:\n")
 print([i for i in exp])
