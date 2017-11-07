@@ -19,22 +19,6 @@ class Main:
     seed(7)
     pares=[]
     plot={}
-    #plota os vértices do grafo
-    '''
-    for l in self.graph.get():
-      sort=False
-      while not sort:
-        x=randint(10,200)
-        y=randint(10,200)
-        if (x,y) not in plotados:
-          plotados.append((x,y))
-          sort=True
-      self.canvas.create_oval(x-10,y-10,x+10,y+10,fill="red")
-      self.canvas.create_text(x,y,text=l)
-      #desenha as arestas
-    for i in range(1,len(plotados)):
-      self.canvas.create_line(plotados[i-1][0],plotados[i-1][1],plotados[i][1],plotados[i][1])
-    '''
     #posiciona os vértices no canvas
     for v in self.graph.get():
       x=randint(10,100)
