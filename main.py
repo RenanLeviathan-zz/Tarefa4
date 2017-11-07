@@ -54,4 +54,5 @@ grafo={
 #visualização do grafo
 root=Tk()
 Main(root,grafo)
+root.title("Busca em Profundidade")
 root.mainloop()
