@@ -9,8 +9,6 @@ class Grafo:
   def get(self):
     return self.lista
     
-  def arestas_busca(self):
-    return self.exp
   def get_history(self):
     return self.history
 #explora as arestas do grafo    
