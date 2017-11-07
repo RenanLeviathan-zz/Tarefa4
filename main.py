@@ -32,10 +32,10 @@ class Main:
     for p in pares:
       #primeiro vértice do par
       self.canvas.create_oval(plot[p[0]][0]-10,plot[p[0]][1]-10,plot[p[0]][0]+10,plot[p[0]][1]+10,fill="red")
-      self.canvas.create_text(plot[p[0]][0],plot[p[0]][1],text=p[0])
+      self.canvas.create_text(plot[p[0]][0],plot[p[0]][1],text=p[0],fill="yellow")
       #segundo vértice do par
       self.canvas.create_oval(plot[p[1]][0]-10,plot[p[1]][1]-10,plot[p[1]][0]+10,plot[p[1]][1]+10,fill="red")
-      self.canvas.create_text(plot[p[1]][0],plot[p[1]][1],text=p[1])
+      self.canvas.create_text(plot[p[1]][0],plot[p[1]][1],text=p[1],fill="yellow")
       #criando linhas
       self.canvas.create_line(plot[p[0]][0],plot[p[0]][1],plot[p[1]][0],plot[p[1]][1])
     self.msg=Label(self.widget1,text=self.graph.get_history())
